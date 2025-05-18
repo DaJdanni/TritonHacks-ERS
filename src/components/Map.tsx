@@ -1,7 +1,6 @@
 import React from 'react'
-import {AdvancedMarker, APIProvider, Map, Marker, Pin} from '@vis.gl/react-google-maps';
+import {AdvancedMarker, APIProvider, Map} from '@vis.gl/react-google-maps';
 import userData from '../api/MapData'
-import Papa from 'papaparse'
 
 const icons = import.meta.glob('/src/assets/*.{png,jpg,svg}', {
   eager: true,

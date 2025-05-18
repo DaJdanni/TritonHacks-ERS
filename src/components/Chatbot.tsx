@@ -1,8 +1,6 @@
 import React from 'react'
-import { ImgButton, Button } from './Button'
+import { Button } from './Button'
 // import generateResponse from '../api/AIBot'
-import { useMapsLibrary } from '@vis.gl/react-google-maps'
-import userData from '../api/MapData'
 import fetchResponse from '../api/AIBot'
 
 interface messageObject {

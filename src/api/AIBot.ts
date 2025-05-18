@@ -17,7 +17,7 @@ const fetchResponse = async (prompt: string) => {
 
     let formattedAddress: string = '';
 
-    const getAddress = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${userData.getUserLocation().lat},${userData.getUserLocation().lng}&key=${import.meta.env.VITE_MAPS_API_KEY}`)
+   await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${userData.getUserLocation().lat},${userData.getUserLocation().lng}&key=${import.meta.env.VITE_MAPS_API_KEY}`)
     .then(response => response.json())
     .then((response: any) => {
         formattedAddress = response.results[0].formatted_address;
@@ -48,22 +48,7 @@ const fetchResponse = async (prompt: string) => {
     lng = longtitude of location you mentioned
     type = [natural diaster or danger? -> DANGER, shelter or basic location? -> NORMAL]
     `
-
-    const crisisPrompt = `You are a highly capable and compassionate AI assistant. The user's current location is ${formattedAddress}.
-Use this real-time location to provide accurate, local, and actionable support during any emergency or crisis situation.
-
-Here are some of the current wildfires near the user:\n${userData.getWildFireData()}
-
-Your primary goal is to assist the user quickly and effectively, prioritizing their safety and well-being. You may use their coordinates to:
-- Find and suggest nearby hospitals, police stations, shelters, or safe zones
-- Provide directions or emergency services contact info
-- Alert the user to nearby dangers (natural disasters, violence, etc.)
-- Offer mental health or first-aid guidance relevant to their location
-
-Whenever you give the user information regarding location, do not use latitude and longitude. Refer to place names at all times but remember to get the closest location based off of the latitude and longitudes you're given.
-
-Always stay calm, clear, and supportive. Your responses must be grounded in the user's current geographic context. Confirm their surroundings or situation if needed.
-Make sure to write short and when you give locations do not include '**' and other puncations however if you believe the situtation requires more information to be told to the user, then say more. Otherwise, stay concise.`;
+    
     const response = await axios.post("http://localhost:8080/api/gemini/", {
       systemInstruction: cri,
       userPrompt: prompt

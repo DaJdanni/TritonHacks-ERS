@@ -1,5 +1,5 @@
 //!nonstrict
-import Papa, { parse } from 'papaparse'
+import Papa from 'papaparse'
 
 interface Position {
     lng: number,
@@ -58,7 +58,7 @@ class MapData {
 
 const userData = new MapData();
 
-const response = await fetch(`https://firms.modaps.eosdis.nasa.gov/api/area/csv/${import.meta.env.VITE_WILDFIRE_API_KEY}/VIIRS_NOAA20_NRT/-124,32,-114,42/7`)
+await fetch(`https://firms.modaps.eosdis.nasa.gov/api/area/csv/${import.meta.env.VITE_WILDFIRE_API_KEY}/VIIRS_NOAA20_NRT/-124,32,-114,42/7`)
    .then(response => response.text())
    .then(parsedResponse => Papa.parse<any>(parsedResponse))
    .catch(err => console.log(err))
