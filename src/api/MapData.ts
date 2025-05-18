@@ -58,11 +58,19 @@ class MapData {
 
 const userData = new MapData();
 
-await fetch(`https://firms.modaps.eosdis.nasa.gov/api/area/csv/${import.meta.env.VITE_WILDFIRE_API_KEY}/VIIRS_NOAA20_NRT/-124,32,-114,42/7`)
+try {
+    const apiKey = import.meta.env.VITE_WILDFIRE_API_KEY;
+    if (!apiKey) throw new Error("API key is undefined");
+
+    await fetch(`https://firms.modaps.eosdis.nasa.gov/api/area/csv/${import.meta.env.VITE_WILDFIRE_API_KEY}/VIIRS_NOAA20_NRT/-124,32,-114,42/7`)
    .then(response => response.text())
    .then(parsedResponse => Papa.parse<any>(parsedResponse))
    .catch(err => console.log(err))
    .then((parsedResponse: any) => {
+
+        if (!parsedResponse || !parsedResponse.data) {
+            console.log("Parsed response is incorrect");
+        }
 
         console.log(parsedResponse.data);
         console.log(typeof(parsedResponse.data));
@@ -85,7 +93,11 @@ await fetch(`https://firms.modaps.eosdis.nasa.gov/api/area/csv/${import.meta.env
         //     console.log(typeof(map.lat), typeof(map.lng));
         // })
 
-}); // print out all the arrays
+    }); // print out all the arrays
+} catch {
+    console.error("Could not get wildfire data");
+}
+
 
 
 export default userData;
