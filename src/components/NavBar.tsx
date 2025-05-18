@@ -1,6 +1,6 @@
 import React from 'react'
 import {ImgButton} from './Button'
-import userData from '../api/MapData'
+import userData from '../lib/MapData'
 
 const NavBar: React.FC = React.memo(() => {
 

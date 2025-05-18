@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from './Button'
 // import generateResponse from '../api/AIBot'
-import fetchResponse from '../api/AIBot'
+import fetchResponse from '../lib/AIBot'
 
 interface messageObject {
     id: string,

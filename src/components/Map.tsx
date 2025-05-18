@@ -1,6 +1,6 @@
 import React from 'react'
 import {AdvancedMarker, APIProvider, Map} from '@vis.gl/react-google-maps';
-import userData from '../api/MapData'
+import userData from '../lib/MapData'
 
 const icons = import.meta.glob('/src/assets/*.{png,jpg,svg}', {
   eager: true,
