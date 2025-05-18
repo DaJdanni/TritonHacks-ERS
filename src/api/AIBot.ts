@@ -49,7 +49,7 @@ const fetchResponse = async (prompt: string) => {
     type = [natural diaster or danger? -> DANGER, shelter or basic location? -> NORMAL]
     `
 
-    const response = await axios.post("server/api/gemini/", {
+    const response = await axios.post("api/gemini/", {
       systemInstruction: cri,
       userPrompt: prompt
     });
