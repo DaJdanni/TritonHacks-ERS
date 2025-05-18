@@ -43,6 +43,8 @@ const fetchResponse = async (prompt: string) => {
     If you bring up a location to the user, at the end of the message create another two lines that follow this format:\n
     LOCATION_DATA
     lat, lng, type
+    lat, lng, type,
+    ... (etc.)
     Refer to this dictionary: 
     lat = latitude of location you mentioned
     lng = longtitude of location you mentioned
