@@ -48,8 +48,8 @@ const fetchResponse = async (prompt: string) => {
     lng = longtitude of location you mentioned
     type = [natural diaster or danger? -> DANGER, shelter or basic location? -> NORMAL]
     `
-    
-    const response = await axios.post("http://localhost:8080/api/gemini/", {
+
+    const response = await axios.post("/https://triton-hacks-ers.vercel.app/api/gemini/", {
       systemInstruction: cri,
       userPrompt: prompt
     });
