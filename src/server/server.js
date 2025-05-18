@@ -54,6 +54,6 @@ app.post(`/api/gemini`, async (req, res) => {
     }
 })
 
-app.listen(8080, () => {
+app.listen(3000, () => {
     console.log(`Backend server started on port 8080`);
 });
