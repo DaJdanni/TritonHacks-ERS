@@ -67,9 +67,6 @@ const fetchResponse = async (prompt: string) => {
       }
     );
 
-    console.log(dataLocations.data);
-    console.log(formatPlaceNames(dataLocations.data));
-
     const cri = 
     `
     You are a emergency first response AI assistant designed to help users prepare, evaluate their current situtation, and
@@ -78,6 +75,9 @@ const fetchResponse = async (prompt: string) => {
     The users live location is: ${formattedAddress}.\n
     Some of the current wildfires near the user (lng, lat, Brightness Temperature in Band I4 (Infrared) or intensity in kelvins):\n
     ${userData.getWildFireData()}\n
+
+    Here are some of the locations near the user within a 10 mile radius for hospitals, supermarkets for supplies, and fire stations. Use them to assist the user:\n
+    ${formatPlaceNames(dataLocations.data)}\n
 
 
 

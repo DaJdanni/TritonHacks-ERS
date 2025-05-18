@@ -83,7 +83,7 @@ const GoogleMap: React.FC = React.memo(() => {
         </Map>
         
         ) : (
-          <p>Input your location </p>
+          <p className='text-center'>Waiting for location...</p>
         )}
      </APIProvider>
     )
