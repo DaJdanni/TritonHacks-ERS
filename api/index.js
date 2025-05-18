@@ -1,4 +1,3 @@
-
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -57,3 +56,5 @@ app.post(`/api/gemini`, async (req, res) => {
 app.listen(3000, () => {
     console.log(`Backend server started on port 8080`);
 });
+
+module.exports = app;
